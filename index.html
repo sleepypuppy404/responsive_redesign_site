@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <body>
+        <div class="main-container">
+            <div class="mySlides fade">
+                <picture>
+                  <source media="(min-width: 500px)" srcset="bagels-wide.avif">
+                  <img src="image.png" alt="IfItDoesntMatchAnyMedia">
+              </picture>
+                <div class="text">  The Best Bagel in RI!</div>
+                <div class="textsub"> Bagel Gourmet is proud to have been serving the Providence community for over 15 years! We guarantee nothing but the freshest bagels daily!</div>
+            </div>
+            <div class="mySlides fade">
+                    <img src="origin-of-the-bagel-stack-of-bagels.jpeg" style="width:100vw; height:100vh;">
+                    <div class="text">Our Promise</div>
+                    <div class="textsub"> We promise nothing but the freshest bagels.
+                       Thats why we wake up at 2:30a.m. every morning to make our dough and bagels for YOU, our community.
+                       Its all worth it every time we see another smiling customer. 
+                       So, we promise to NEVER use a bagel from the day before</div>
+            </div>
+            <div class="mySlides fade">
+                  <img src="bgmenu.jpeg"  style="width:100vw; height:100vh;">
+                  <div class="textwrapper">
+                    <div class="text">Try Us Today!</div>
+                    <div class="textsub">
+                      Store Location: 222 Richmond St.<br> 
+                      Open from: 6:30 to 10pm Daily<br>
+                      Delivery: 7:00am to 2:00pm Monday through Friday<br>
+                      Phone: (401)-454-8800</div>
+                  </div>
+            </div>
+            <div class="topnav">
+                <a class="active" href="#home">Menu</a>
+                <a href="#news">Locations</a>
+                <b>Bagel Gourmet Cafe</b>
+                <a href="#contact">Contact Us!</a>
+                <a href="#about">Photos</a>
+              </div>
+            <div class="hamburger-menu">
+              <input id="menu__toggle" type="checkbox" />
+              <label class="menu__btn" for="menu__toggle">
+                <span></span>
+              </label>
+          
+              <ul class="menu__box">
+                <li><a class="menu__item" href="#">Menu</a></li>
+                <li><a class="menu__item" href="#">Locations</a></li>
+                <li><a class="menu__item" href="#">Contact Us!</a></li>
+                <li><a class="menu__item" href="#">Photos</a></li>
+              </ul>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+    </body>
+</html> 
+
+<style>
+  /*Credit for Slideshow Code and CSS: Borrowed and modified from https://www.w3schools.com/howto/howto_js_slideshow.asp */
+  /*Credit for hamburger menu guide: https://alvarotrigo.com/blog/hamburger-menu-css/ */
+
+    * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none; position:absolute; width:100vw; height:100vh; top:0; left:0;}
+    img {vertical-align: middle;}
+    
+    /* Slideshow container */
+    .main-container {
+      max-width: 100vw;
+      max-height: 100vw;
+      position: relative;
+      margin: auto;}
+    
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: 40vh;
+      color: white;
+      font-weight: bold;
+      font-size: 10vh;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+</style>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
